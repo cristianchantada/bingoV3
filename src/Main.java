@@ -11,6 +11,7 @@ public class Main {
         return ABSOLUTE_PATH_TO_DIR_IMG;
     }
 
+
     public static void main(String[] args) {
         new Bingo();
     }
