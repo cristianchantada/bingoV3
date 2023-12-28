@@ -8,18 +8,16 @@ public class BingoBall {
     private final int IMAGE_WIDTH = 55;
     private final int IMAGE_HEIGHT = 55;
     private String imagePath;
-    private BingoPanel bingoPanel;
     private BingoImage ballImageInBallImagesRow;
     private BingoImage ballImageInBingoCard;
 
     // Ball constructor:
-    protected BingoBall(int value, int ballXPositionInBallsRow, int xPanelPosition, int yPanelPosition, String imagePath, BingoPanel bingoPanel){
+    protected BingoBall(int value, int ballXPositionInBallsRow, int xPanelPosition, int yPanelPosition, String imagePath){
         this.value = value;
         this.ballXPositionInBallsRow = ballXPositionInBallsRow;
         this.xPanelPosition = xPanelPosition;
         this.yPanelPosition = yPanelPosition;
         this.imagePath = imagePath;
-        this.bingoPanel = bingoPanel;
 
         this.ballImageInBallImagesRow = new BingoImage(
                 ballXPositionInBallsRow,
@@ -27,7 +25,6 @@ public class BingoBall {
                 IMAGE_WIDTH,
                 IMAGE_HEIGHT,
                 imagePath,
-                bingoPanel,
                 false);
 
         this.ballImageInBingoCard = new BingoImage(
@@ -36,7 +33,6 @@ public class BingoBall {
                 IMAGE_WIDTH,
                 IMAGE_HEIGHT,
                 imagePath,
-                bingoPanel,
                 false);
 
     }
@@ -47,6 +43,14 @@ public class BingoBall {
 
     protected BingoImage getBallImageInBingoCard(){
         return ballImageInBingoCard;
+    }
+
+    protected void setImageInRowVisibility (boolean visibility){
+        ballImageInBallImagesRow.getImageLabel().setVisible(visibility);
+    }
+
+    protected void setImageInCardVisibility(boolean visibility){
+        ballImageInBingoCard.getImageLabel().setVisible(visibility);
     }
 
 }

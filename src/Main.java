@@ -7,14 +7,14 @@ public class Main {
      *      ABSOLUTE_PATH_TO_DIR_IMG = "C:\\myProject\\img"
      */
 
-    private final static String ABSOLUTE_PATH_TO_DIR_IMG = "C:\\Users\\Usuario\\Desktop\\bingoV3\\bingoV3";
+    private final static String ABSOLUTE_PATH_TO_DIR_IMG = "C:\\Users\\Usuario\\Desktop\\bingoV3\\bingoV3\\img";
 
     protected static String getAbsolutePathToDirImg(){
         return ABSOLUTE_PATH_TO_DIR_IMG;
     }
 
     public static void main(String[] args) {
-        new Bingo(getAbsolutePathToDirImg());
+        new Bingo();
     }
 
 }

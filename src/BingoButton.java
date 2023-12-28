@@ -1,38 +1,22 @@
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class BingoButton implements ActionListener {
+public class BingoButton {
 
-    private JButton button;
+    private final JButton button;
 
-    protected BingoButton(int Xposition, int Yposition, int width, int high, String textContent, BingoPanel bingoPanel){
+    protected BingoButton(int Xposition, int Yposition, int width, int high, String textContent){
         this.button = new JButton(textContent);
-        this.button.addActionListener(this);
         this.button.setBounds(Xposition, Yposition, width, high);
-        bingoPanel.getBingoPanel().add(button);
-
     }
 
-    protected BingoButton(int Xposition, int Yposition, int width, int high, String textContent, BingoPanel bingoPanel, boolean enabled){
+    protected BingoButton(int Xposition, int Yposition, int width, int high, String textContent,boolean enabled){
         this.button = new JButton(textContent);
-        this.button.addActionListener(this);
         this.button.setBounds(Xposition, Yposition, width, high);
-        bingoPanel.getBingoPanel().add(button);
-        button.setEnabled(enabled);
+        this.button.setEnabled(enabled);
     }
 
     protected JButton getButton(){
         return button;
     }
 
-    protected void setEnabled(boolean enabled){
-        button.setEnabled(enabled);
-    }
-
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
-    }
 }
