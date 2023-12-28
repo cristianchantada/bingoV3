@@ -2,16 +2,16 @@ import javax.swing.*;
 
 public class BingoImage {
 
-    private JLabel imageLabel;
+    private final JLabel imageLabel;
 
-    protected BingoImage(int Xposition, int Yposition, int width, int high, String IMAGE_FILE_NAME){
+    protected BingoImage(int xPosition, int yPosition, int width, int high, String IMAGE_FILE_NAME){
         this.imageLabel = new JLabel(new ImageIcon(Main.getAbsolutePathToDirImg() + "\\" + IMAGE_FILE_NAME));
-        this.imageLabel.setBounds(Xposition, Yposition, width, high);
+        this.imageLabel.setBounds(xPosition, yPosition, width, high);
     }
 
-    protected BingoImage(int Xposition, int Yposition, int width, int high, String IMAGE_FILE_NAME, boolean isVisible){
+    protected BingoImage(int xPosition, int yPosition, int width, int high, String IMAGE_FILE_NAME, boolean isVisible){
         this.imageLabel = new JLabel(new ImageIcon(Main.getAbsolutePathToDirImg() + "\\" + IMAGE_FILE_NAME));
-        this.imageLabel.setBounds(Xposition, Yposition, width, high);
+        this.imageLabel.setBounds(xPosition, yPosition, width, high);
         this.imageLabel.setVisible(isVisible);
     }
 

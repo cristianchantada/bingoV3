@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class BallsArray {
 
-    private BingoBall[] bingoBallsArray = new BingoBall[15];
+    private final BingoBall[] bingoBallsArray = new BingoBall[15];
 
     protected BallsArray(){
         // Number of balls to be selected from each ten balls.
@@ -48,8 +48,7 @@ public class BallsArray {
 
         for(int i = 0; i < repeatedBallCheckerArray.length; i++){
             String ballStr = repeatedBallCheckerArray[i] + ".png";
-            bingoBallsArray[i] = new BingoBall(
-                    repeatedBallCheckerArray[i], ballPositionInRow, ballCoordinates[i][0] + 113, ballCoordinates[i][1] + 263, ballStr);
+            bingoBallsArray[i] = new BingoBall(ballPositionInRow, ballCoordinates[i][0] + 113, ballCoordinates[i][1] + 263, ballStr);
             ballPositionInRow += 55;
         }
     }

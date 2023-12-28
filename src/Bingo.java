@@ -4,34 +4,26 @@ import java.awt.event.*;
 
 public class Bingo extends JFrame implements ActionListener {
 
-    // Variable de control para la visibilidad de las bolas.
+    // Control variable for ball visibility.
     private int iPosition;
 
-    // Creación JPanel:
-    private final JPanel bingoPanel = (JPanel) this.getContentPane();
-
-
-    // Imágenes del bingo:
-    private final BingoImage numbersTable = new BingoImage(477, 15, 298, 247, "tableroNumeros.png");
-    private JLabel numbersTableImageLabel= numbersTable.getImageLabel();
-    private final BingoImage valDoAsmaLogoImage = new BingoImage(49, 12, 300, 249, "bingoIESVDA.png");
-    private JLabel valDoAsmaLogoImageLabel = valDoAsmaLogoImage.getImageLabel();
-    private final BingoImage bingoCardImage = new BingoImage(113, 263,600, 297, "cartonBingoEnBlanco.png");
-    private JLabel bingoCardImageLabel = bingoCardImage.getImageLabel();
-
-    // Botones del bingo:
+    // Bingo buttons:
     private final BingoButton extractButtonConstructor = new BingoButton(105, 622, 200, 25, "Sacar número");
-    private JButton extractButton = extractButtonConstructor.getButton();
+    private final JButton extractButton = extractButtonConstructor.getButton();
     private final BingoButton placeButtonConstructor = new BingoButton(315, 622, 200, 25,"Colocar números",false);
-    private JButton placeButton = placeButtonConstructor.getButton();
+    private final JButton placeButton = placeButtonConstructor.getButton();
     private final BingoButton resetButtonConstructor = new BingoButton(525, 622, 200, 25, "Restablecer");
-    private JButton resetButton = resetButtonConstructor.getButton();
+    private final JButton resetButton = resetButtonConstructor.getButton();
 
-    // Array con las bolas del bingo:
+    // Array with bingo balls:
     private final BallsArray ballsArrayConstructor = new BallsArray();
-    private BingoBall[] ballsArray = ballsArrayConstructor.getBingoBallsArray();
+    private final BingoBall[] ballsArray = ballsArrayConstructor.getBingoBallsArray();
 
     public Bingo(){
+
+        // JPanel creation:
+        JPanel bingoPanel = (JPanel) this.getContentPane();
+
         setSize(842, 750);
         setTitle("Bingooooooooo !!!");
         setResizable(true);
@@ -40,13 +32,17 @@ public class Bingo extends JFrame implements ActionListener {
         bingoPanel.setLayout(null);
         bingoPanel.setBackground(Color.decode("#FFC482"));
 
-        // Añadiendo imágenes al panel
-        bingoPanel.add(numbersTableImageLabel);
-        bingoPanel.add(valDoAsmaLogoImageLabel);
-        bingoPanel.add(bingoCardImageLabel);
-        bingoPanel.setComponentZOrder(bingoCardImageLabel, 1);
+        // Bingo images:
+        BingoImage numbersTable = new BingoImage(477, 15, 298, 247, "tableroNumeros.png");
+        BingoImage valDoAsmaLogoImage = new BingoImage(49, 12, 300, 249, "bingoIESVDA.png");
+        BingoImage bingoCardImage = new BingoImage(113, 263, 600, 297, "cartonBingoEnBlanco.png");
+        // Adding images to the panel:
+        bingoPanel.add(numbersTable.getImageLabel());
+        bingoPanel.add(valDoAsmaLogoImage.getImageLabel());
+        bingoPanel.add(bingoCardImage.getImageLabel());
+        bingoPanel.setComponentZOrder(bingoCardImage.getImageLabel(), 1);
 
-        // Añadiendo botones al panel
+        // Adding buttons to the panel:
         extractButton.addActionListener(this);
         placeButton.addActionListener(this);
         resetButton.addActionListener(this);
@@ -74,14 +70,14 @@ public class Bingo extends JFrame implements ActionListener {
                 placeButton.setEnabled(true);
             }
 
-            ballsArray[iPosition++].setImageInRowVisibility(true);
+            ballsArray[iPosition++].setImageInRowVisibility();
             extractions++;
 
         } else if (e.getSource()== placeButton){
 
             placeButton.setEnabled(false);
             for(int i = 0; i < 15; i++) {
-                ballsArray[i].setImageInCardVisibility(true);
+                ballsArray[i].setImageInCardVisibility();
             }
 
         } else if (e.getSource()== resetButton){
