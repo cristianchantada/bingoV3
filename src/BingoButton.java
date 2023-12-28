@@ -6,19 +6,19 @@ public class BingoButton implements ActionListener {
 
     private JButton button;
 
-    protected BingoButton(int Xposition, int Yposition, int width, int high, String textContent, BingoPanel bingoPanel){
+    protected BingoButton(int Xposition, int Yposition, int width, int high, String textContent, JPanel bingoPanel){
         this.button = new JButton(textContent);
         this.button.addActionListener(this);
         this.button.setBounds(Xposition, Yposition, width, high);
-        bingoPanel.getBingoPanel().add(button);
+        bingoPanel.add(button);
 
     }
 
-    protected BingoButton(int Xposition, int Yposition, int width, int high, String textContent, BingoPanel bingoPanel, boolean enabled){
+    protected BingoButton(int Xposition, int Yposition, int width, int high, String textContent, JPanel bingoPanel, boolean enabled){
         this.button = new JButton(textContent);
         this.button.addActionListener(this);
         this.button.setBounds(Xposition, Yposition, width, high);
-        bingoPanel.getBingoPanel().add(button);
+        bingoPanel.add(button);
         button.setEnabled(enabled);
     }
 

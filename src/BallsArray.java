@@ -1,11 +1,12 @@
+import javax.swing.*;
 import java.util.Arrays;
 
 public class BallsArray {
 
     private BingoBall[] bingoBallsArray = new BingoBall[15];
-    private BingoPanel bingoPanel;
+    private JPanel bingoPanel;
 
-    protected BallsArray(BingoPanel bingoPanel){
+    protected BallsArray(JPanel bingoPanel){
 
         this.bingoPanel = bingoPanel;
 

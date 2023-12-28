@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 public class BingoBall {
 
     private int value;
@@ -8,12 +10,12 @@ public class BingoBall {
     private final int IMAGE_WIDTH = 55;
     private final int IMAGE_HEIGHT = 55;
     private String imagePath;
-    private BingoPanel bingoPanel;
+    private JPanel bingoPanel;
     private BingoImage ballImageInBallImagesRow;
     private BingoImage ballImageInBingoCard;
 
     // Ball constructor:
-    protected BingoBall(int value, int ballXPositionInBallsRow, int xPanelPosition, int yPanelPosition, String imagePath, BingoPanel bingoPanel){
+    protected BingoBall(int value, int ballXPositionInBallsRow, int xPanelPosition, int yPanelPosition, String imagePath, JPanel bingoPanel){
         this.value = value;
         this.ballXPositionInBallsRow = ballXPositionInBallsRow;
         this.xPanelPosition = xPanelPosition;
