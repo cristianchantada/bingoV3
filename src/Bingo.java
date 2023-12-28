@@ -1,38 +1,44 @@
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Bingo extends JFrame implements ActionListener {
 
-    private static String ABSOLUTE_PATH_TO_DIR_IMG;
+    private String ABSOLUTE_PATH_TO_DIR_IMG;
 
     // Creación JPanel:
-    private BingoPanel bingoPanel = new BingoPanel();
+    //private final BingoPanel bingoPanel = new BingoPanel();
+    private final JPanel bingoPanel = (JPanel) this.getContentPane();
+
+
     // Imágenes del bingo:
-    private BingoImage numbersTable = new BingoImage(477, 15, 298, 247, "tableroNumeros.png", bingoPanel);
-    private BingoImage valDoAsmaLogoImage = new BingoImage(49, 12, 300, 249, "bingoIESVDA.png", bingoPanel);
-    private BingoImage bingoCardImage = new BingoImage(113, 263,600, 297, "cartonBingoEnBlanco.png", bingoPanel);
+    private final BingoImage numbersTable = new BingoImage(477, 15, 298, 247, "tableroNumeros.png", bingoPanel);
+    private final BingoImage valDoAsmaLogoImage = new BingoImage(49, 12, 300, 249, "bingoIESVDA.png",  bingoPanel);
+    private final BingoImage bingoCardImage = new BingoImage(113, 263,600, 297, "cartonBingoEnBlanco.png", bingoPanel);
 
     // Botones del bingo:
-    private BingoButton extractButton = new BingoButton(105, 622, 200, 25, "Sacar número", bingoPanel);
-    private BingoButton placeButton = new BingoButton(315, 622, 200, 25,"Colocar números", bingoPanel, false);
-    private BingoButton resetButton = new BingoButton(315, 622, 200, 25, "Restablecer", bingoPanel);
+    private final BingoButton extractButton = new BingoButton(105, 622, 200, 25, "Sacar número", bingoPanel);
+    private final BingoButton placeButton = new BingoButton(315, 622, 200, 25,"Colocar números", bingoPanel, false);
+    private final BingoButton resetButton = new BingoButton(315, 622, 200, 25, "Restablecer", bingoPanel);
 
     // Array con las bolas del bingo:
-    private BallsArray ballsArray = new BallsArray(bingoPanel);
+    private final BallsArray ballsArray = new BallsArray(bingoPanel);
 
     public Bingo(String ABSOLUTE_PATH_TO_DIR_IMG){
-        setABSOLUTE_PATH_TO_DIR_IMG(ABSOLUTE_PATH_TO_DIR_IMG);
+        setSize(842, 750);
+        setTitle("Bingooooooooo !!!");
+        setResizable(true);
+        setLocation(25, 25);
 
-    }
+        bingoPanel.setLayout(null);
+        bingoPanel.setBackground(Color.decode("#FFC482"));
 
-    protected void setABSOLUTE_PATH_TO_DIR_IMG(String ABSOLUTE_PATH_TO_DIR_IMG){
-        Bingo.ABSOLUTE_PATH_TO_DIR_IMG = ABSOLUTE_PATH_TO_DIR_IMG;
-    }
+        setVisible(true);
 
-    protected static String getABSOLUTE_PATH_TO_DIR_IMG(){
-        return ABSOLUTE_PATH_TO_DIR_IMG;
+
+        this.ABSOLUTE_PATH_TO_DIR_IMG = ABSOLUTE_PATH_TO_DIR_IMG;
     }
 
     int extractions = 1;

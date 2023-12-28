@@ -50,7 +50,7 @@ public class BallsArray {
                 max += 10;
                 repeatedBallCheckerArray[i + j] = number;
                 bingoBallsArray[i] = new BingoBall(
-                        number, ballPositionInRow, ballCoordinates[i + j][0], ballCoordinates[i + j][1], ballStr
+                        number, ballPositionInRow, ballCoordinates[i + j][0], ballCoordinates[i + j][1], ballStr, bingoPanel
                 );
 
                 ballPositionInRow += 55;

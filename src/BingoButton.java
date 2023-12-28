@@ -1,22 +1,24 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class BingoButton {
+public class BingoButton implements ActionListener {
 
     private JButton button;
 
     protected BingoButton(int Xposition, int Yposition, int width, int high, String textContent, BingoPanel bingoPanel){
         this.button = new JButton(textContent);
-        this.button.addActionListener((ActionListener) this);
+        this.button.addActionListener(this);
         this.button.setBounds(Xposition, Yposition, width, high);
-        bingoPanel.addInBingoPanel(button);
+        bingoPanel.getBingoPanel().add(button);
+
     }
 
     protected BingoButton(int Xposition, int Yposition, int width, int high, String textContent, BingoPanel bingoPanel, boolean enabled){
         this.button = new JButton(textContent);
-        this.button.addActionListener((ActionListener) this);
+        this.button.addActionListener(this);
         this.button.setBounds(Xposition, Yposition, width, high);
-        bingoPanel.addInBingoPanel(button);
+        bingoPanel.getBingoPanel().add(button);
         button.setEnabled(enabled);
     }
 
@@ -28,4 +30,9 @@ public class BingoButton {
         button.setEnabled(enabled);
     }
 
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+    }
 }

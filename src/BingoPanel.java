@@ -3,17 +3,19 @@ import java.awt.*;
 
 public class BingoPanel extends JFrame {
 
-    private JPanel bingoPanel = (JPanel) this.getContentPane();
+    private final JPanel bingoPanel = (JPanel) this.getContentPane();
 
     protected BingoPanel(){
         setSize(842, 750);
         setTitle("Bingooooooooo !!!");
         setResizable(true);
         setLocation(25, 25);
-        setVisible(true);
 
         bingoPanel.setLayout(null);
         bingoPanel.setBackground(Color.decode("#FFC482"));
+
+        setVisible(true);
+
     }
 
     protected void addInBingoPanel (JLabel label){
